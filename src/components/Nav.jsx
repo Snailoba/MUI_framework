@@ -1,5 +1,7 @@
 import React from "react";
-import { AppBar, Typography, Box } from "@mui/material";
+import { AppBar, Typography, Box, Button, IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+
 const boundaries = {
   margin: "50px",
 };
@@ -13,29 +15,30 @@ const containerNav = {
 const title = {
   fontFamily: "Courier New",
   fontSize: "25px",
-  paddingLeft: "15px",
+  pl: 15,
 };
-const triplet = {
-  listStyle: "none",
-  padding: "0",
-  margin: "0",
-};
-const hori = {
-  display: "inline-block",
-  marginRight: "10px",
+const triplet = { display: { xs: "none", md: "flex" } };
+const butto = {
+  backgroundColor: "#20232a",
+  color: "white",
   fontFamily: "Courier New",
   fontSize: "15px",
 };
+const menu = { mr: 2, display: { sm: "block", md: "none" }, color: "white" };
+
 function Nav() {
   return (
     <Box sx={boundaries}>
       <AppBar sx={containerNav}>
         <Typography sx={title}>My Movie</Typography>
-        <ul style={triplet}>
-          <li style={hori}>HOME</li>
-          <li style={hori}>ABOUT</li>
-          <li style={hori}>CONTACT</li>
-        </ul>
+        <Box sx={triplet}>
+          <Button sx={butto}>Home</Button>
+          <Button sx={butto}>About</Button>
+          <Button sx={butto}>Contact</Button>
+        </Box>
+        <IconButton edge="start" sx={menu}>
+          <MenuIcon />
+        </IconButton>
       </AppBar>
     </Box>
   );
